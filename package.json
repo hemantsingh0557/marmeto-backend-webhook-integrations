@@ -1,0 +1,40 @@
+{
+  "name": "marmeto-backend-integration",
+  "version": "1.0.0",
+  "description": "Resilient, idempotent webhook ingestion and courier dispatch service for Marmeto take-home",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "mock-courier": "node mock-courier.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --detectOpenHandles --forceExit",
+    "reconcile": "node scripts/reconcile.js",
+    "replay": "node scripts/replay-failed.js",
+    "send-webhook": "node scripts/send-webhook.js"
+  },
+  "keywords": [
+    "marmeto",
+    "webhooks",
+    "idempotency",
+    "queue",
+    "integration",
+    "sqlite"
+  ],
+  "author": "Hemant Singh",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  },
+  "jest": {
+    "transform": {},
+    "testTimeout": 30000,
+    "verbose": true
+  }
+}
